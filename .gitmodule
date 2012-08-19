@@ -1,7 +1,7 @@
-[[submodule "skeletons/ZendSkeletonApplication"]
+[submodule "skeletons/ZendSkeletonApplication"]
     path = skeletons/
     url = git://github.com/zendframework/ZendSkeletonApplication.git
-submodule "skeletons/ZendSkeletonModule"]
+[submodule "skeletons/ZendSkeletonModule"]
     path = skeletons/
     url = git://github.com/zendframework/ZendSkeletonModule.git
 
