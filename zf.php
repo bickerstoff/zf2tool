@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 render(__DIR__);
@@ -37,7 +38,7 @@ class Module
 
     private function _addModule($name)
     {
-        exec('rsync -avz ' . __DIR__  . '/skeletons/ZendSkeletonModule/ --exclude .git*  module/' . $name );
+        exec('rsync -avz ' . __DIR__  . '/templates/ZendSkeletonModule/ --exclude .git*  module/' . $name );
 
     }
 }   
@@ -66,7 +67,7 @@ class Project
 
     private function _bootstrap($destiny)
     {
-        exec('rsync -avz ' . __DIR__ . '/skeletons/ZendSkeletonApplication/ --exclude .git* ' .  $destiny . '/' );
+        exec('rsync -avz ' . __DIR__ . '/templates/ZendSkeletonApplication/ --exclude .git* ' .  $destiny . '/' );
     }
 }
 
