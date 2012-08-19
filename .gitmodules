@@ -1,0 +1,6 @@
+[submodule "templates/ZendSkeletonApplication"]
+	path = templates/ZendSkeletonApplication
+	url = git://github.com/zendframework/ZendSkeletonApplication.git
+[submodule "templates/ZendSkeletonModule"]
+	path = templates/ZendSkeletonModule
+	url = git://github.com/zendframework/ZendSkeletonModule.git
