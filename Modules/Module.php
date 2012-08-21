@@ -20,7 +20,7 @@ class Module
 
     public function create($name)
     {
-        $this->_name = $name;
+        $this->_name = strtolower($name);
         render("Creating new Module ...");
         $this->_activateModule();
         $this->_addModule();
@@ -61,22 +61,19 @@ class Module
         exec("mv {$dir}ZendSkeletonModule {$dir}" .ucfirst($this->_name));
 
         $dir = 'module/' . ucfirst($this->_name) . '/view/';
-        exec("mv {$dir}zend-skeleton-module {$dir}" . $this->_name . "-module");   
-        $dir = "{$dir}" . $this->_name . "-module/";
+        exec("mv {$dir}zend-skeleton-module {$dir}" . $this->_name . "");   
+        $dir = "{$dir}" . $this->_name . "/";
         exec("mv {$dir}skeleton {$dir}" . $this->_name  );   
     }
 
     private function _updateNewModule()
     {
         exec("find . -type f -exec sed -i '' s/ZendSkeletonModule/" . ucfirst($this->_name) . "/g {} +" );
-        
         exec("find . -type f -exec sed -i '' s/ZendSkeleton/" . ucfirst($this->_name) . "/g {} +");
-
         exec("find . -type f -exec sed -i '' s/Skeleton/" . ucfirst($this->_name) . "/g {} +");
-
         exec("find . -type f -exec sed -i '' s/skeleton/" . $this->_name . "/g {} +" );
         exec("find . -type f -exec sed -i '' s/module-name-here/" . $this->_name . "/g {} +" );
-        exec("find . -type f -exec sed -i '' s/module-specific-route/" . $this->_name . "/g {} +" );
+        exec("find . -type f -exec sed -i '' s/module-specific-root/" . $this->_name . "/g {} +" );
         
 
     }
