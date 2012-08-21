@@ -52,13 +52,13 @@ class Module
     private function _updateFilesName()
     {
         $dir = 'module/' . ucfirst($this->_name) . '/src/';
-        exec( "mv {$dir}ZendSkeletonModule {$dir}" . ucfirst($this->_name) .'Module' );
+        exec( "mv {$dir}ZendSkeletonModule {$dir}" . ucfirst($this->_name) );
 
-        $dir .= ucfirst($this->_name) . 'Module/Controller/';     
+        $dir .= ucfirst($this->_name) . '/Controller/';     
         exec("mv {$dir}SkeletonController.php {$dir}" . ucfirst($this->_name) . 'Controller.php');
 
         $dir = 'module/' . ucfirst($this->_name) . '/tests/';
-        exec("mv {$dir}ZendSkeletonModule {$dir}" .ucfirst($this->_name). "Module");
+        exec("mv {$dir}ZendSkeletonModule {$dir}" .ucfirst($this->_name));
 
         $dir = 'module/' . ucfirst($this->_name) . '/view/';
         exec("mv {$dir}zend-skeleton-module {$dir}" . $this->_name . "-module");   
@@ -68,21 +68,15 @@ class Module
 
     private function _updateNewModule()
     {
-        exec("find . -type f -exec sed -i '' s/ZendSkeletonModule/" . 
-                 ucfirst($this->_name) . "/g {} +"
-        );
+        exec("find . -type f -exec sed -i '' s/ZendSkeletonModule/" . ucfirst($this->_name) . "/g {} +" );
         
-        exec("find . -type f -exec sed -i '' s/ZendSkeleton/" . 
-                 ucfirst($this->_name) . "/g {} +"
-        );
+        exec("find . -type f -exec sed -i '' s/ZendSkeleton/" . ucfirst($this->_name) . "/g {} +");
 
-        exec("find . -type f -exec sed -i '' s/Skeleton/" . 
-            ucfirst($this->_name) . "/g {} +"
-        );
+        exec("find . -type f -exec sed -i '' s/Skeleton/" . ucfirst($this->_name) . "/g {} +");
 
-        exec("find . -type f -exec sed -i '' s/skeleton/" . 
-            $this->_name . "/g {} +"
-        );
+        exec("find . -type f -exec sed -i '' s/skeleton/" . $this->_name . "/g {} +" );
+        exec("find . -type f -exec sed -i '' s/module-name-here/" . $this->_name . "/g {} +" );
+        exec("find . -type f -exec sed -i '' s/module-specific-route/" . $this->_name . "/g {} +" );
         
 
     }
