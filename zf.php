@@ -1,15 +1,14 @@
 #!/usr/bin/php
 <?php
-
-render(__DIR__);
+define('APPLICATION_CONF_FILE', 'config/application.config.php');
 try {
     $class = ucfirst($argv[2]);
+    require_once __DIR__  . '/Modules/' . $class . '.php';
     $module = new $class();
 } catch (Exception $e) {
-    render($e->getMessage());
-    render("We can't found the module " . $argv[1]);
+    render($e->getMessage(), 2);
+    render("We can't found the module " . $argv[1], 2);
 }
-
 $method = $argv[1];
 $module->$method($argv[3]);
 
@@ -18,56 +17,14 @@ render('Complete');
 
 function render($message, $type = 1)
 {
-    echo $message . "\n";
 
     if ($type == 2) { 
         echo "\n-------------\n";
         echo "\n[error] $message\n";
         die("\n!!!! We found erros \n");
+    } else {
+        echo "\n[info] $message\n";
     }
 }
 
-class Module
-{
-    public function create($name)
-    {
-        render("Creating new Module ...");
-        $this->_addModule($name);
-        render("Module $name created");
-    }
-
-    private function _addModule($name)
-    {
-        exec('rsync -avz ' . __DIR__  . '/templates/ZendSkeletonModule/ --exclude .git*  module/' . $name );
-
-    }
-}   
-    
-
-class Project 
-{
-    public function create($name)
-    {
-        render("Creating new project ... ");
-
-        $this->_createFolder($name);
-        $this->_bootstrap($name);
-        
-        render("Project created");
-
-    }
-
-    private function _createFolder($name)
-    {
-        if (file_exists($name)) {
-            render('The folder exists', 2);
-        } 
-        mkdir($name, 0755);
-    }
-
-    private function _bootstrap($destiny)
-    {
-        exec('rsync -avz ' . __DIR__ . '/templates/ZendSkeletonApplication/ --exclude .git* ' .  $destiny . '/' );
-    }
-}
 
