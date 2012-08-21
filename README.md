@@ -9,17 +9,21 @@ This tool is about create new project from bash, and add new modules, and maybe 
 
 ### Create a project
 
-'''
-php zf2.php create project projectName
-'''
+    php zf2.php create project projectName
 
-### Add new module. 
+### Modules 
 
-Inside the project 
+Inside the project folder
 
-'''
-php zf2.php create module moduleName
-'''
+
+### Create new module
+
+    zf2.php create module moduleName
+
+
+### Show actived modules
+    zf2.php show module
+
 
 We can just creeate a folder bootstrap inside de application, but you need to configure the module
 

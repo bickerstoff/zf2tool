@@ -16,7 +16,6 @@ class Module
             echo "\n" . $m;
         }
         
-        echo "\n-----------\n";
     }
 
     public function create($name)

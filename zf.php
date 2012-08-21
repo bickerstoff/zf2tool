@@ -12,8 +12,8 @@ try {
 $method = $argv[1];
 $module->$method(isset($argv[3]) ? $argv[3] : null);
 
-render("\n--------------------------");
-render('Complete');
+echo "\n\n-------------------------\n";
+echo "Complete\n";
 
 function render($message, $type = 1)
 {
