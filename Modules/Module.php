@@ -4,6 +4,21 @@ class Module
 {
     private $_name;
 
+    public function show()
+    {
+        
+        echo "\n-----------\n";
+        echo "\nModule list. \n";
+
+        $config = include 'config/application.config.php';
+        
+        foreach ($config['modules'] as $m) {
+            echo "\n" . $m;
+        }
+        
+        echo "\n-----------\n";
+    }
+
     public function create($name)
     {
         $this->_name = $name;
