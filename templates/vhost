@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+    ServerName {project}.local
+    ServerAlias www.{project}.local
+    DocumentRoot {path}/public
+
+    <Directory {path}/public>
+        Options FollowSymlinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+
+    </Directory>
+    
+    SetEnv APPLICATION_ENV development
+
+</VirtualHost>
+
+
+
