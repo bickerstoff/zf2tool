@@ -10,7 +10,7 @@ For a better use add the zftool folder to $PATH and give execution permissions t
 
 ### Create a project
 
-    zf2.php create project projectName
+    zf.php create project projectName
 
 ### Modules 
 
@@ -19,10 +19,15 @@ Inside the project folder
 
 ### Create new module
 
-    zf2.php create module moduleName
+    zf.php create module moduleName
 
 
 ### Show actived modules
-    zf2.php show module
+    zf.php show module
+
+
+### Add Db Connection
+    zf.php conn db Pdo mydb myhost myuser mypassword
+
 
 

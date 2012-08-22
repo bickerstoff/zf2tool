@@ -4,7 +4,7 @@ class Module
 {
     private $_name;
 
-    public function show()
+    public function show($argv)
     {
         
         echo "\n-----------\n";
@@ -18,9 +18,10 @@ class Module
         
     }
 
-    public function create($name)
+    public function create($argv)
     {
-        $this->_name = strtolower($name);
+        
+        $this->_name = strtolower($argv[3]);
         render("Creating new Module ...");
         $this->_activateModule();
         $this->_addModule();

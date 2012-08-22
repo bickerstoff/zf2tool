@@ -4,9 +4,9 @@ class Project
 {
     private $_name;
 
-    public function create($name)
+    public function create($argv)
     {
-        $this->_name = strtolower($name);
+        $this->_name = strtolower($argv[3]);
         render("Creating new project ... ");
         $this->_createFolder();
         $this->_bootstrap();

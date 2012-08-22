@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?php
 define('APPLICATION_CONF_FILE', 'config/application.config.php');
+define('APPLICATION_GLOBAL_CONF', 'config/autoload/global.php');
 try {
     $class = ucfirst($argv[2]);
     require_once __DIR__  . '/Modules/' . $class . '.php';
@@ -10,7 +11,7 @@ try {
     render("We can't found the module " . $argv[1], 2);
 }
 $method = $argv[1];
-$module->$method(isset($argv[3]) ? $argv[3] : null);
+$module->$method($argv);
 
 echo "\n\n-------------------------\n";
 echo "Complete\n";
@@ -26,5 +27,4 @@ function render($message, $type = 1)
         echo "\n[info] $message\n";
     }
 }
-
 
