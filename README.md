@@ -30,4 +30,5 @@ Inside the project folder
     zf.php conn db Pdo mydb myhost myuser mypassword
 
 
-
+### Add Controllers
+    zf.php create controller ModuleName NewControllerName
