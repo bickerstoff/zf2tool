@@ -11,6 +11,7 @@ try {
     render("We can't found the module " . $argv[1], 2);
 }
 $method = $argv[1];
+echo $method;
 $module->$method($argv);
 
 echo "\n\n-------------------------\n";

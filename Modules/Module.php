@@ -45,7 +45,7 @@ class Module
     private function _addModule()
     {
         exec('rsync -avz ' . __DIR__  . '/../templates/ZendSkeletonModule/ ' .
-            '--exclude .git*  module/' . ucfirst($this->_name) 
+            '--exclude .git  module/' . ucfirst($this->_name) 
         );
 
     }
