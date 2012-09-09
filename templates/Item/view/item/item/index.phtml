@@ -1,0 +1,26 @@
+<h1><?php echo $this->escapeHtml('Items'); ?></h1>
+
+<p><a href="/item/add">Add new Item</a></p>
+
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th>Status</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($items as $item) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($item->name);?></td>
+    <td><?php echo $this->escapeHtml($item->created_at);?></td>
+    <td><?php echo $this->escapeHtml($item->updated_at);?></td>
+    <td><?php echo $this->escapeHtml($item->status);?></td>
+    
+    <td>
+        <a href="/item/edit/<?= (int)$item->id?>">Edit</a>
+        <a href="/item/delete/<?= (int)$item->id?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
