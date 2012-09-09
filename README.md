@@ -1,10 +1,18 @@
 # ZF2 Tool
-#
+
+
 In the last version of zf2 we have modules, and this modules are plugable. 
 
 This tool is about create new project from bash, and add new modules, and maybe scaffolding. 
 
+## How to install
+
+
+    git clone https://github.com/pablofmorales/zf2tool.git --recursive 
+
 For a better use add the zftool folder to $PATH and give execution permissions to zf.php
+
+
 
 ## You can
 
